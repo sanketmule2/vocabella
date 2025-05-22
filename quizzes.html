@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vocabella - Quizzes</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Quizzes | Vocabella</title>
+    <link rel="stylesheet" href="styles (1).css"/>
 </head>
 <body>
     <header class="navbar">
@@ -18,41 +17,37 @@
         </nav>
     </header>
     <main class="content">
-        <h2>Language Quiz</h2>
+        <h2>Quiz</h2>
         <form id="quiz-form">
             <div class="question">
-                <p>1. What is "Hello" in Spanish?</p>
-                <label><input type="radio" name="q1" value="a" /> Bonjour</label>
-                <label><input type="radio" name="q1" value="b" /> Hola</label>
-                <label><input type="radio" name="q1" value="c" /> Ciao</label>
+                <p>1. How do you say "Hello" in Spanish?</p>
+                <label><input type="radio" name="q1" value="a"/> Bonjour</label>
+                <label><input type="radio" name="q1" value="b"/> Hola</label>
+                <label><input type="radio" name="q1" value="c"/> Ciao</label>
             </div>
             <div class="question">
-                <p>2. What is "Thank you" in French?</p>
-                <label><input type="radio" name="q2" value="a" /> Merci</label>
-                <label><input type="radio" name="q2" value="b" /> Danke</label>
-                <label><input type="radio" name="q2" value="c" /> Gracias</label>
+                <p>2. How do you say "Thank you" in French?</p>
+                <label><input type="radio" name="q2" value="a"/> Merci</label>
+                <label><input type="radio" name="q2" value="b"/> Danke</label>
+                <label><input type="radio" name="q2" value="c"/> Gracias</label>
             </div>
             <div class="question">
-                <p>3. Fill in the blank: '_____ means Hello in French.'</p>
-                <input type="text" name="q3" placeholder="Your answer here" />
+                <p>3. Fill in: "_____ means Hello in French."</p>
+                <input type="text" name="q3" placeholder="Your answer"/>
             </div>
             <div class="question">
-                <p>4. Drag and drop the correct fruit to the box labeled 'Apple'</p>
-                <div style="display:flex;gap:1rem;">
-                    <div class="draggable" id="apple" draggable="true" data-answer="apple">Apple</div>
-                    <div class="draggable" id="banana" draggable="true" data-answer="banana">Banana</div>
-                </div>
-                <div class="droppable" name="q4"></div>
+                <p>4. Drag the correct item into the box labeled 'Apple'</p>
+                <div class="draggable" draggable="true" data-answer="apple">Apple</div>
+                <div class="draggable" draggable="true" data-answer="banana">Banana</div>
+                <div class="droppable"></div>
             </div>
             <button type="submit">Submit</button>
         </form>
         <p id="quiz-result"></p>
     </main>
-    
     <footer class="footer">
-        <p>Created by Sadashiv Mule © 2025</p>
+        <p>© 2025 by Sadashiv Mule</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>

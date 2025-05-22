@@ -1,45 +1,34 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-    const quizForm = document.getElementById("quiz-form");
-    const resultDisplay = document.getElementById("quiz-result");
+    const form = document.getElementById("quiz-form");
+    const result = document.getElementById("quiz-result");
 
-    if (quizForm) {
-        quizForm.addEventListener("submit", function (e) {
+    if (form) {
+        form.addEventListener("submit", e => {
             e.preventDefault();
-
             let score = 0;
-            const q1 = quizForm.q1.value;
-            const q2 = quizForm.q2.value;
-            const q3 = quizForm.q3.value.trim().toLowerCase();
-            const dropAnswer = document.querySelector(".droppable").getAttribute("data-filled");
 
-            if (q1 === "b") score++;
-            if (q2 === "a") score++;
-            if (q3 === "bonjour") score++;
-            if (dropAnswer === "apple") score++;
+            if (form.q1.value === "b") score++;
+            if (form.q2.value === "a") score++;
+            if (form.q3.value.trim().toLowerCase() === "bonjour") score++;
+            const dropped = document.querySelector(".droppable").getAttribute("data-filled");
+            if (dropped === "apple") score++;
 
-            localStorage.setItem("lastQuizScore", score);
-            resultDisplay.textContent = `You scored ${score}/4`;
+            result.textContent = `You scored ${score}/4`;
         });
     }
 
-    // Drag and Drop logic
-    const draggables = document.querySelectorAll(".draggable");
-    const droppables = document.querySelectorAll(".droppable");
-
-    draggables.forEach(draggable => {
-        draggable.addEventListener("dragstart", e => {
-            e.dataTransfer.setData("text/plain", draggable.dataset.answer);
+    document.querySelectorAll(".draggable").forEach(item => {
+        item.addEventListener("dragstart", e => {
+            e.dataTransfer.setData("text", item.dataset.answer);
         });
     });
 
-    droppables.forEach(droppable => {
-        droppable.addEventListener("dragover", e => e.preventDefault());
-
-        droppable.addEventListener("drop", e => {
-            const answer = e.dataTransfer.getData("text/plain");
-            droppable.textContent = answer;
-            droppable.setAttribute("data-filled", answer);
+    document.querySelectorAll(".droppable").forEach(box => {
+        box.addEventListener("dragover", e => e.preventDefault());
+        box.addEventListener("drop", e => {
+            const answer = e.dataTransfer.getData("text");
+            box.textContent = answer;
+            box.setAttribute("data-filled", answer);
         });
     });
 });
